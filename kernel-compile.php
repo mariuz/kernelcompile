@@ -1,7 +1,6 @@
 #!/usr/bin/php
 <?
 $kernel_version = "2.6.28";
-passthru("chmod +x /usr/bin/php-fastcgi");
 chdir("/usr/src");
 passthru("wget --continue http://kernel.org/pub/linux/kernel/v2.6/linux-$kernel_version.tar.bz2");
 passthru("tar -jxf linux-$kernel_version.tar.bz2");
