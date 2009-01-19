@@ -3,6 +3,8 @@
 $kernel_version = "2.6.28";
 $RcKernelVersion = "2.6.29-rc2";
 
+passthru("apt-get install kernel-package git-core fakeroot ncurses-dev");
+
 chdir("/usr/src");
 passthru("wget --continue http://kernel.org/pub/linux/kernel/v2.6/linux-$kernel_version.tar.bz2");
 passthru("wget --continue http://www.kernel.org/pub/linux/kernel/v2.6/testing/patch-$RcKernelVersion.bz2");
