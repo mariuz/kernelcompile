@@ -18,6 +18,6 @@ passthru("mv linux-$kernel_version linux-$RcKernelVersion");
 chdir("linux-$RcKernelVersion");
 passthru("cp /boot/config-`uname -r` ./.config");
 passthru("make menuconfig");
-passthru("make kpkg-clean");
+passthru("make-kpkg clean");
 passthru("fakeroot make-kpkg --initrd --append-to-version=-vanillaice kernel_image kernel_headers");
 ?>
