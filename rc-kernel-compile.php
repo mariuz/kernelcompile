@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?
 $kernel_version = "2.6.29.1";
-$RcKernelVersion = "2.6.30-rc1";
+$RcKernelVersion = "2.6.30-rc3";
 
 passthru("apt-get install kernel-package git-core fakeroot ncurses-dev");
 
