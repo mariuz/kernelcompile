@@ -1,7 +1,9 @@
 #!/usr/bin/php
 <?
-$kernel_version = "2.6.29.1";
-
+DEFINE(KERNEL_URL,'http://www.kernel.org/');
+include_once('./getKernelVersion.php');
+$kernel_version=GetStableVersion(KERNEL_URL);
+print ("installing kernel $kernel_version");
 passthru("apt-get install kernel-package git-core fakeroot ncurses-dev");
 chdir("/usr/src");
 passthru("wget --continue http://kernel.org/pub/linux/kernel/v2.6/linux-$kernel_version.tar.bz2");
