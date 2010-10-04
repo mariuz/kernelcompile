@@ -1,8 +1,8 @@
 #!/usr/bin/php
 <?
-DEFINE(KERNEL_URL,'http://www.kernel.org/');
+$KERNEL_URL='http://www.kernel.org/';
 include_once('./getKernelVersion.php');
-$kernel_version=GetStableVersion(KERNEL_URL);
+$kernel_version=GetStableVersion($KERNEL_URL);
 print ("installing kernel $kernel_version");
 passthru("apt-get install kernel-package git-core fakeroot ncurses-dev");
 chdir("/usr/src");
