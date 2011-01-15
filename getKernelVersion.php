@@ -1,7 +1,7 @@
 <?php
 function GetStableVersion()
 {
- return "2.6.35.7";
+ return "2.6.37";
 }
 
 ?>
