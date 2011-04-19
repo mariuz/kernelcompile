@@ -1,6 +1,8 @@
 <?php
 function getCpuCount()
 {
- return "grep -c  processor /proc/cpuinfo"
+  exec("grep -c  processor /proc/cpuinfo",&$out);
+  return $out[0];
+
 }
 ?>
