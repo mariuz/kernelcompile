@@ -1,23 +1,17 @@
 #!/usr/bin/php
 <?
-$kernel_version = "2.6.29.1";
-$RcKernelVersion = "2.6.30-rc3";
+$KERNEL_URL='http://www.kernel.org/';
+include_once('./getKernelVersion.php');
+$RelaseCandidateVersion=GetReleaseCandidateVersion($KERNEL_URL);
 
 passthru("apt-get install kernel-package git-core fakeroot ncurses-dev");
 
 chdir("/usr/src");
-passthru("wget --continue http://kernel.org/pub/linux/kernel/v2.6/linux-$kernel_version.tar.bz2");
-passthru("wget --continue http://www.kernel.org/pub/linux/kernel/v2.6/testing/patch-$RcKernelVersion.bz2");
+passthru("wget --continue http://www.kernel.org/pub/linux/kernel/v2.6/testing/linux-$ReleaseCandidateVersion.tar.bz2");
 
 passthru("tar -jxf linux-$kernel_version.tar.bz2");
-passthru("bunzip2 patch-$RcKernelVersion.bz2");
 
-chdir("linux-$kernel_version");
-passthru("patch -p1 < ../patch-$RcKernelVersion");
-chdir("..");
-
-passthru("mv linux-$kernel_version linux-$RcKernelVersion");
-chdir("linux-$RcKernelVersion");
+chdir("linux-$ReleaseCandidateVersion");
 passthru("cp /boot/config-`uname -r` ./.config");
 passthru("make menuconfig");
 passthru("make-kpkg clean");
