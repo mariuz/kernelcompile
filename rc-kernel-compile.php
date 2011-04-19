@@ -2,14 +2,14 @@
 <?
 $KERNEL_URL='http://www.kernel.org/';
 include_once('./getKernelVersion.php');
-$RelaseCandidateVersion=GetReleaseCandidateVersion($KERNEL_URL);
+$ReleaseCandidateVersion=GetReleaseCandidateVersion($KERNEL_URL);
 
 passthru("apt-get install kernel-package git-core fakeroot ncurses-dev");
 
 chdir("/usr/src");
 passthru("wget --continue http://www.kernel.org/pub/linux/kernel/v2.6/testing/linux-$ReleaseCandidateVersion.tar.bz2");
 
-passthru("tar -jxf linux-$kernel_version.tar.bz2");
+passthru("tar -jxf linux-$ReleaseCandidateVersion.tar.bz2");
 
 chdir("linux-$ReleaseCandidateVersion");
 passthru("cp /boot/config-`uname -r` ./.config");
