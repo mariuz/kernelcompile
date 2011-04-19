@@ -2,7 +2,12 @@
 <?
 $KERNEL_URL='http://www.kernel.org/';
 include_once('./getKernelVersion.php');
+include_once('./getCpuCount.php');
+
 $ReleaseCandidateVersion=GetReleaseCandidateVersion($KERNEL_URL);
+$cpuCount=getCpuCount();
+print("cpu count:$cpuCount\n");
+print("compiling kernel $ReleaseCandidateVersion\n");
 
 passthru("apt-get install kernel-package git-core fakeroot ncurses-dev");
 
@@ -15,5 +20,5 @@ chdir("linux-$ReleaseCandidateVersion");
 passthru("cp /boot/config-`uname -r` ./.config");
 passthru("make menuconfig");
 passthru("make-kpkg clean");
-passthru("fakeroot make-kpkg --initrd --append-to-version=-vanillaice kernel_image kernel_headers");
+passthru("CONCURRENCY_LEVEL=$cpuCount fakeroot make-kpkg --initrd --append-to-version=-vanillaice kernel_image kernel_headers");
 ?>
