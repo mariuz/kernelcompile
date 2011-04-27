@@ -5,6 +5,6 @@ function GetStableVersion()
 }
 function GetReleaseCandidateVersion()
 {
- return "2.6.39-rc4";
+ return "2.6.39-rc5";
 }
 ?>
