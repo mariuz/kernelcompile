@@ -1,7 +1,7 @@
 <?php
 function GetStableVersion()
 {
- return "2.6.38.3";
+ return "2.6.38.4";
 }
 function GetReleaseCandidateVersion()
 {
