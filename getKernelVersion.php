@@ -1,10 +1,43 @@
 <?php
+include_once('./simplehtmldom/simple_html_dom.php');
+
 function GetStableVersion()
 {
- return "2.6.38.4";
+// create HTML DOM
+    $html = file_get_html('http://www.kernel.org/kdist/version.shtml');
+    foreach($html->find('tr') as $row) {
+      foreach($row->find('td') as $td)
+       {
+        if ($td->innertext=='stable:')
+        {
+        	$kernel_version=$row->find('strong', 0)->innertext;
+        	$ret = $kernel_version;
+         	// clean up memory
+        	$html->clear();
+        	unset($html);
+        	return $ret;
+        }
+        }
+       }
+
 }
 function GetReleaseCandidateVersion()
 {
- return "2.6.39-rc5";
+  $html = file_get_html('http://www.kernel.org/kdist/version.shtml');
+    foreach($html->find('tr') as $row) {
+      foreach($row->find('td') as $td)
+       {
+        if ($td->innertext=='mainline:')
+        {
+        $kernel_version=$row->find('strong', 0)->innertext;
+        $ret = $kernel_version;
+         // clean up memory
+        $html->clear();
+        unset($html);
+        return $ret;
+        }
+        }
+       }
+
 }
 ?>
