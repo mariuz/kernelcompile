@@ -12,7 +12,7 @@ print("compiling kernel $ReleaseCandidateVersion\n");
 passthru("apt-get install kernel-package git-core fakeroot ncurses-dev");
 
 chdir("/usr/src");
-passthru("wget --continue http://www.kernel.org/pub/linux/kernel/v2.6/testing/linux-$ReleaseCandidateVersion.tar.bz2");
+passthru("wget --continue http://www.kernel.org/pub/linux/kernel/v3.0/testing/linux-$ReleaseCandidateVersion.tar.bz2");
 
 passthru("tar -jxf linux-$ReleaseCandidateVersion.tar.bz2");
 
