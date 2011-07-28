@@ -10,7 +10,7 @@ print("cpu count:$cpuCount\n");
 print("compiling kernel $kernel_version\n");
 passthru("apt-get install kernel-package git-core fakeroot ncurses-dev");
 chdir("/usr/src");
-passthru("wget --continue http://kernel.org/pub/linux/kernel/v2.6/linux-$kernel_version.tar.bz2");
+passthru("wget --continue http://kernel.org/pub/linux/kernel/v3.0/linux-$kernel_version.tar.bz2");
 passthru("tar -jxf linux-$kernel_version.tar.bz2");
 chdir("linux-$kernel_version");
 passthru("cp /boot/config-`uname -r` ./.config");
