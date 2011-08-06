@@ -1,6 +1,7 @@
 #!/usr/bin/php
 <?
 $KERNEL_URL='http://www.kernel.org/';
+$BUILD_DIR="/usr/src";
 include_once('./getKernelVersion.php');
 include_once('./getCpuCount.php');
 
@@ -21,4 +22,5 @@ passthru("cp /boot/config-`uname -r` ./.config");
 passthru("make menuconfig");
 passthru("make-kpkg clean");
 passthru("CONCURRENCY_LEVEL=$cpuCount fakeroot make-kpkg --initrd --append-to-version=-vanillaice kernel_image kernel_headers");
+passthru("make clean");
 ?>
