@@ -11,12 +11,16 @@ http://mapopa.blogspot.com/2009/01/building-kernel-2.html
 
 
 Usually the script will do all the work for you
+
  
 sudo php rc-kernel-compile.php
 
+
 or for stable
 
+
 sudo php kernel-compile.php
+
 
 License is GPL3 as usual
 http://www.gnu.org/licenses/gpl-3.0.html
