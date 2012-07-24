@@ -2,8 +2,7 @@
 <?
 $KERNEL_URL='http://www.kernel.org/';
 $BUILD_DIR="/usr/src";
-include_once('./getKernelVersion.php');
-include_once('./getCpuCount.php');
+include_once('./functions.php');
 
 $ReleaseCandidateVersion=GetReleaseCandidateVersion($KERNEL_URL);
 $cpuCount=getCpuCount();
