@@ -41,7 +41,7 @@ function GetReleaseCandidateVersion()
 }
 function getCpuCount()
 {
-  exec("grep -c  processor /proc/cpuinfo",&$out);
+  exec("grep -c  processor /proc/cpuinfo",$out);
   return $out[0];
 
 }
