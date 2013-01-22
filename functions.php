@@ -45,4 +45,10 @@ function getCpuCount()
   return $out[0];
 
 }
+function Install($kernel_version)
+{
+passthru("dpkg -i /usr/src/linux-image-$kernel_version-vanillaice_$kernel_version-vanillaice-10.00.Custom_amd64.deb");
+passthru("dpkg -i /usr/src/linux-headers-$kernel_version-vanillaice_$kernel_version-vanillaice-10.00.Custom_amd64.deb");
+}
+
 ?>
