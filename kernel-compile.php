@@ -15,7 +15,7 @@ passthru("tar -jxf linux-$kernel_version.tar.bz2");
 chdir("linux-$kernel_version");
 passthru("cp /boot/config-`uname -r` ./.config");
 passthru("make menuconfig");
-assthru("make-kpkg clean");
+passthru("make-kpkg clean");
 passthru("CONCURRENCY_LEVEL=$cpuCount fakeroot make-kpkg --initrd --append-to-version=-vanillaice kernel_image kernel_headers");
 passthru("make clean");
 Install($kernel_version);
