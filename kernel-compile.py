@@ -1,22 +1,23 @@
 #!/usr/bin/python
-import subprocess
+from subprocess import *
+Popen("apt-get install git-core kernel-package fakeroot build-essential ncurses-dev python-pip wget",shell=True)
+Popen("pip install feedparser",shell=True)
+from functions.functions import *
 KERNEL_URL='http://www.kernel.org/'
 BUILD_DIR="/usr/src"
-include_once('./functions.php')
-
-kernel_version=GetStableVersion(KERNEL_URL)
-cpuCount=getCpuCount()
+#kernel_version=GetStableVersion(KERNEL_URL)
+#cpuCount=getCpuCount()
 print("cpu count:$cpuCount\n")
 print("compiling kernel $kernel_version\n")
-subprocess.Popen("apt-get install git-core kernel-package fakeroot build-essential ncurses-dev",shell=True)
-chdir(BUILD_DIR)
-passthru("wget --continue http://kernel.org/pub/linux/kernel/v3.x/linux-$kernel_version.tar.bz2")
-passthru("tar -jxf linux-$kernel_version.tar.bz2")
-chdir("linux-$kernel_version")
-passthru("cp /boot/config-`uname -r` ./.config")
-passthru("make menuconfig")
-passthru("make-kpkg clean")
-passthru("CONCURRENCY_LEVEL=$cpuCount fakeroot make-kpkg --initrd --append-to-version=-vanillaice kernel_image kernel_headers");
-passthru("make clean")
-Install($kernel_version)
+
+#chdir(BUILD_DIR)
+#Popen("wget --continue http://kernel.org/pub/linux/kernel/v3.x/linux-$kernel_version.tar.bz2",shell=True)
+#Popen("tar -jxf linux-$kernel_version.tar.bz2")
+#chdir("linux-$kernel_version")
+#Popen("cp /boot/config-`uname -r` ./.config")
+#Popen("make menuconfig")
+#Popen("make-kpkg clean")
+#Popen("CONCURRENCY_LEVEL=$cpuCount fakeroot make-kpkg --initrd --append-to-version=-vanillaice kernel_image kernel_headers");
+#Popen("make clean")
+#Install(kernel_version)
 
