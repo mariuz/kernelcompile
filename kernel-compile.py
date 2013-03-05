@@ -3,10 +3,10 @@ from subprocess import *
 Popen("apt-get install git-core kernel-package fakeroot build-essential ncurses-dev python-pip wget",shell=True)
 Popen("pip install feedparser",shell=True)
 from functions.functions import *
-KERNEL_URL='http://www.kernel.org/'
 BUILD_DIR="/usr/src"
-#kernel_version=GetStableVersion(KERNEL_URL)
-#cpuCount=getCpuCount()
+kernel_version=GetStableVersion()
+print(kernel_version)
+cpuCount=getCpuCount()
 print("cpu count:$cpuCount\n")
 print("compiling kernel $kernel_version\n")
 
