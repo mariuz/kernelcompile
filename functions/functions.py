@@ -15,8 +15,8 @@ def GetReleaseCandidateVersion():
             return kernel_version
 
 def getCpuCount():
-    exec("grep -c  processor /proc/cpuinfo",out)
-    return out[0]
+    out=check_output("grep -c  processor /proc/cpuinfo",shell=True)
+    return out
 
 def Install(kernel_version):
     Popen("dpkg -i /usr/src/linux-image-kernel_version-vanillaice_kernel_version-vanillaice-10.00.Custom_amd64.deb", shell=True)
