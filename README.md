@@ -13,13 +13,13 @@ http://mapopa.blogspot.com/2009/01/building-kernel-2.html
 Usually the script will do all the work for you
 
  
-    sudo php rc-kernel-compile.php
+    sudo python rc-kernel-compile.py
 
 
 or for stable
 
 
-    sudo php kernel-compile.php
+    sudo python kernel-compile.py
 
 
 License is GPL3 as usual
