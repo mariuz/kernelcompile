@@ -22,4 +22,3 @@ call("make-kpkg clean",shell=True)
 call("CONCURRENCY_LEVEL=%s fakeroot make-kpkg --initrd --append-to-version=-vanillaice kernel_image kernel_headers" % cpuCount,shell=True)
 call("make clean",shell=True)
 Install(kernel_version)
-

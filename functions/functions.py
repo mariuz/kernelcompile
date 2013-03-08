@@ -19,5 +19,5 @@ def getCpuCount():
     return out
 
 def Install(kernel_version):
-    Popen("dpkg -i /usr/src/linux-image-kernel_version-vanillaice_kernel_version-vanillaice-10.00.Custom_amd64.deb", shell=True)
-    Popen("dpkg -i /usr/src/linux-headers-kernel_version-vanillaice_kernel_version-vanillaice-10.00.Custom_amd64.deb",shell=True)
+    call("dpkg -i /usr/src/linux-image-%s-vanillaice_%s-vanillaice-10.00.Custom_amd64.deb" % (kernel_version,kernel_version), shell=True)
+    call("dpkg -i /usr/src/linux-headers-%s-vanillaice_%s-vanillaice-10.00.Custom_amd64.deb" % (kernel_version,kernel_version), shell=True)
