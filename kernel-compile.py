@@ -2,7 +2,7 @@
 from subprocess import *
 from os import chdir
 from sh import cp,make,uname
-call("apt-get install git-core kernel-package fakeroot build-essential ncurses5-dev python-pip wget",shell=True)
+call("apt-get install git-core kernel-package fakeroot build-essential libncurses5-dev python-pip wget",shell=True)
 call("pip install feedparser",shell=True)
 from functions.functions import *
 BUILD_DIR="/usr/src"
