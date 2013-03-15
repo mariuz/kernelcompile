@@ -1,10 +1,10 @@
 #!/usr/bin/python
 from subprocess import *
 from os import chdir
-from sh import cp,make,uname
 call("apt-get install git-core kernel-package fakeroot build-essential libncurses5-dev python-pip wget",shell=True)
-call("pip install feedparser",shell=True)
+call("pip install feedparser sh",shell=True)
 from functions.functions import *
+from sh import cp,make,uname
 BUILD_DIR="/usr/src"
 kernel_version=GetStableVersion()
 cpuCount=getCpuCount()
