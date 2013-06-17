@@ -1,5 +1,6 @@
 #!/usr/bin/python
 from subprocess import *
+import os
 from os import chdir
 call("apt-get install git-core kernel-package fakeroot build-essential libncurses5-dev python-pip wget",shell=True)
 call("pip install feedparser sh",shell=True)
@@ -19,6 +20,8 @@ current_kernel=uname("-r").rstrip('\n')
 cp("/boot/config-%s"%current_kernel,"./.config")
 call("make nconfig",shell=True)
 call("make-kpkg clean",shell=True)
-call("CONCURRENCY_LEVEL=%s fakeroot make-kpkg --initrd --append-to-version=-vanillaice kernel_image kernel_headers" % cpuCount,shell=True)
+new_env = os.environ.copy()
+os.environ["CONCURENCY_LEVEL"] = "%s"% cpuCount
+call("fakeroot make-kpkg --initrd --append-to-version=-vanillaice kernel_image kernel_headers" ,shell=True)
 call("make clean",shell=True)
 Install(kernel_version)
