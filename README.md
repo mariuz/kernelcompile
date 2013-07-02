@@ -11,7 +11,7 @@ http://mapopa.blogspot.com/2009/01/building-kernel-2.html
 
 Usually the script will do all the work for you , here is the example for RC
  
-    sudo python kernel-compile.py --type RC
+    sudo python kernel-compile.py --type rc
 
 
 or for stable default
