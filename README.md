@@ -9,9 +9,9 @@ And here is howto use it on ubuntu/debian for building a RC version and then ins
 http://mapopa.blogspot.com/2009/01/building-kernel-2.html
 
 
-Usually the script will do all the work for you , here is the example for RC
+Usually the script will do all the work for you , here is the example for mainline
  
-    sudo python kernel-compile.py --type rc
+    sudo python kernel-compile.py --type mainline
 
 
 or for stable default
