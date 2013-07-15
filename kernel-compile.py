@@ -20,14 +20,16 @@ def main(argv):
   BUILD_DIR="/usr/src"
   if kernel_type == 'mainline':
     kernel_version=GetReleaseCandidateVersion()
+    testing = '/testing'
   else:
     kernel_version=GetStableVersion()
+    testing =''
   cpuCount=getCpuCount()
   print("cpu count:%s\n" % cpuCount)
   print("compiling kernel %s\n" % kernel_version)
 
   chdir(BUILD_DIR)
-  call("wget --continue http://kernel.org/pub/linux/kernel/v3.x/linux-%s.tar.bz2" % kernel_version,shell=True)
+  call("wget --continue http://kernel.org/pub/linux/kernel/v3.x%s/linux-%s.tar.bz2" % (testing,kernel_version),shell=True)
   call("tar -jxf linux-%s.tar.bz2" % kernel_version,shell=True)
   chdir("linux-%s" % kernel_version)
   current_kernel=uname("-r").rstrip('\n')
