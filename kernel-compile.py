@@ -5,6 +5,7 @@ import sys, getopt
 from os import chdir
 def main(argv):
   opts, args = getopt.getopt(argv,"ht:v:",["type=","version="])
+  kernel_type = 'stable'
   for opt, arg in opts:
       if opt == '-h':
          print 'kerenelcompile.py -type <stable|mainline|lts> -v <version>'
