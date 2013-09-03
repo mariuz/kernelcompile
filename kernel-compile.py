@@ -14,7 +14,7 @@ def main(argv):
          kernel_type = arg
       elif opt in ("-v", "--version"):
          version = arg
-  call("apt-get install git-core kernel-package fakeroot build-essential libncurses5-dev python-pip wget",shell=True)
+  call("apt-get install git-core kernel-package fakeroot build-essential libncurses5-dev python-pip wget xz-utils",shell=True)
   call("pip install feedparser sh",shell=True)
   from functions.functions import *
   from sh import cp,make,uname
@@ -32,8 +32,8 @@ def main(argv):
   print("compiling kernel %s\n" % kernel_version)
 
   chdir(BUILD_DIR)
-  call("wget --continue http://kernel.org/pub/linux/kernel/v3.x%s/linux-%s.tar.bz2" % (testing,kernel_version),shell=True)
-  call("tar -jxf linux-%s.tar.bz2" % kernel_version,shell=True)
+  call("wget --continue http://kernel.org/pub/linux/kernel/v3.x%s/linux-%s.tar.xz" % (testing,kernel_version),shell=True)
+  call("tar -Jxf linux-%s.tar.bz2" % kernel_version,shell=True)
   chdir("linux-%s" % kernel_version)
   current_kernel=uname("-r").rstrip('\n')
   cp("/boot/config-%s"%current_kernel,"./.config")
