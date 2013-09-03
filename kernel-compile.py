@@ -19,12 +19,14 @@ def main(argv):
   from functions.functions import *
   from sh import cp,make,uname
   BUILD_DIR="/usr/src"
+  testing=''
   if kernel_type == 'mainline':
     kernel_version=GetReleaseCandidateVersion()
-    testing = '/testing'
+    rc = kernel_version.find('-rc')
+    if rc>0:
+      testing = '/testing'
   else:
     kernel_version=GetStableVersion()
-    testing =''
   cpuCount=getCpuCount()
   print("cpu count:%s\n" % cpuCount)
   print("compiling kernel %s\n" % kernel_version)
