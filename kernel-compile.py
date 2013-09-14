@@ -33,7 +33,7 @@ def main(argv):
 
   chdir(BUILD_DIR)
   call("wget --continue http://kernel.org/pub/linux/kernel/v3.x%s/linux-%s.tar.xz" % (testing,kernel_version),shell=True)
-  call("tar -Jxf linux-%s.tar.bz2" % kernel_version,shell=True)
+  call("tar -Jxf linux-%s.tar.xz" % kernel_version,shell=True)
   chdir("linux-%s" % kernel_version)
   current_kernel=uname("-r").rstrip('\n')
   cp("/boot/config-%s"%current_kernel,"./.config")
