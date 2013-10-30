@@ -4,6 +4,7 @@ import os
 import sys, getopt
 from os import chdir
 from functions.functions import *
+
 def main(argv):
   opts, args = getopt.getopt(argv,"ht:v:",["help","type=","version="])
   kernel_type = 'stable'
@@ -16,7 +17,6 @@ def main(argv):
          kernel_type = arg
       elif opt in ("-v", "--version"):
          version = arg
-  exit()
   call("apt-get install git-core kernel-package fakeroot build-essential libncurses5-dev python-pip wget xz-utils",shell=True)
   call("pip install feedparser sh",shell=True)
   from sh import cp,make,uname
