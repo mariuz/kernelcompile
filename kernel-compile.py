@@ -5,16 +5,18 @@ import sys, getopt
 from os import chdir
 from functions.functions import *
 def main(argv):
-  opts, args = getopt.getopt(argv,"ht:v:",["type=","version="])
+  opts, args = getopt.getopt(argv,"ht:v:",["help","type=","version="])
   kernel_type = 'stable'
   for opt, arg in opts:
-      if opt == '-h':
+      #if opt == '-h':
+      if opt in ("-h", "--help"):
          print 'kerenelcompile.py -type <stable|mainline|lts> -v <version>'
          sys.exit()
       elif opt in ("-t", "--type"):
          kernel_type = arg
       elif opt in ("-v", "--version"):
          version = arg
+  exit()
   call("apt-get install git-core kernel-package fakeroot build-essential libncurses5-dev python-pip wget xz-utils",shell=True)
   call("pip install feedparser sh",shell=True)
   from sh import cp,make,uname
