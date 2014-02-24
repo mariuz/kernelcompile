@@ -7,7 +7,7 @@ from functions.functions import *
 
 def validate_kernel_type(kernel_type):
   if(len(kernel_type) > 0):
-    if ((kernel_type == "stable") or (kernel_type == "mainline") or (kernel_type == "lts")):
+    if ((kernel_type == "stable") or (kernel_type == "mainline") or (kernel_type == "longterm")):
       return True
     else:
       return False
@@ -29,7 +29,7 @@ def main(argv):
   build_method = 'debian'
   for opt, arg in opts:
       if opt in ("-h", "--help"):
-         print 'kerenelcompile.py [-type <stable|mainline|lts>] [-v <version>] [-b <normal|debian>]'
+         print 'kerenelcompile.py [-type <stable|mainline|longterm>] [-v <version>] [-b <normal|debian>]'
          sys.exit()
       elif opt in ("-t", "--type"):
          isValidKernelType = validate_kernel_type(arg)
@@ -37,7 +37,7 @@ def main(argv):
              kernel_type = arg
          else:
              print("Invalid or No Kernel type entered")
-             print("Valid options for the 'type' argument are : 'stable' or 'mainline' or 'lts'\n")
+             print("Valid options for the 'type' argument are : 'stable' or 'mainline' or 'longterm'\n")
              sys.exit()
       elif opt in ("-v", "--version"):
          version = arg
