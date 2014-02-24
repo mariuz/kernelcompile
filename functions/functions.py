@@ -29,3 +29,21 @@ def Install(kernel_version):
           kernel_version=kernel_version+".0"
     call("dpkg -i /usr/src/linux-image-%s-vanillaice_%s-vanillaice-10.00.Custom_amd64.deb" % (kernel_version,kernel_version), shell=True)
     call("dpkg -i /usr/src/linux-headers-%s-vanillaice_%s-vanillaice-10.00.Custom_amd64.deb" % (kernel_version,kernel_version), shell=True)
+    
+def validate_kernel_type(kernel_type):
+  if(len(kernel_type) > 0):
+    if ((kernel_type == "stable") or (kernel_type == "mainline") or (kernel_type == "longterm")):
+      return True
+    else:
+      return False
+  else:
+    return False
+
+def validate_build_method(build_method):
+  if(len(build_method) > 0):
+    if ((build_method == "debian") or (build_method == "normal")): 
+      return True
+    else:
+      return False
+  else:
+    return False    
