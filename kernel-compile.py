@@ -26,7 +26,7 @@ def validate_build_method(build_method):
 def main(argv):
   opts, args = getopt.getopt(argv,"ht:v:b:",["help","type=","version=","build_method="])
   kernel_type = 'stable'
-  build_method = 'normal'
+  build_method = 'debian'
   for opt, arg in opts:
       if opt in ("-h", "--help"):
          print 'kerenelcompile.py [-type <stable|mainline|lts>] [-v <version>] [-b <normal|debian>]'
