@@ -5,24 +5,6 @@ import sys, getopt
 from os import chdir
 from functions.functions import *
 
-def validate_kernel_type(kernel_type):
-  if(len(kernel_type) > 0):
-    if ((kernel_type == "stable") or (kernel_type == "mainline") or (kernel_type == "longterm")):
-      return True
-    else:
-      return False
-  else:
-    return False
-
-def validate_build_method(build_method):
-  if(len(build_method) > 0):
-    if ((build_method == "debian") or (build_method == "normal")): 
-      return True
-    else:
-      return False
-  else:
-    return False
- 
 def main(argv):
   opts, args = getopt.getopt(argv,"ht:v:b:",["help","type=","version=","build_method="])
   kernel_type = 'stable'
