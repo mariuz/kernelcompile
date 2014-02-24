@@ -23,7 +23,7 @@ or for stable default
 
 Default build type is debian way but it can be changed to normal (aka make , make install)
 
-     sudo python kernel-compile.py
+     sudo python kernel-compile.py -b=normal
 
 License is GPL3 as usual
 http://www.gnu.org/licenses/gpl-3.0.html
