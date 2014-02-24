@@ -1,6 +1,6 @@
 Compiling latest vanilla kernel with a python script
 
-it can be used with the stable version or the release candidate one
+it can be used with the stable version or the release candidate one or longterm
 
 http://mapopa.blogspot.com/2009/01/compiling-2.html
 
