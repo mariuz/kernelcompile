@@ -11,7 +11,7 @@ def main(argv):
   build_method = 'debian'
   for opt, arg in opts:
       if opt in ("-h", "--help"):
-         print 'kerenelcompile.py [-type <stable|mainline|longterm>] [-v <version>] [-b <normal|debian>]'
+         print 'kernelcompile.py [-type <stable|mainline|longterm>] [-v <version>] [-b <normal|debian>]'
          sys.exit()
       elif opt in ("-t", "--type"):
          isValidKernelType = validate_kernel_type(arg)
