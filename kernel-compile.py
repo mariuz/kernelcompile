@@ -22,7 +22,7 @@ def main(argv):
              print("Valid options for the 'type' argument are : 'stable' or 'mainline' or 'longterm'\n")
              sys.exit()
       elif opt in ("-v", "--version"):
-         version = arg
+         kernel_version = arg
       elif opt in ("-b", "--build_method"):
          isValidBuildMethod = validate_build_method(arg)
          if(isValidBuildMethod == True):
@@ -37,12 +37,14 @@ def main(argv):
   BUILD_DIR="/usr/src"
   testing=''
   if kernel_type == 'mainline':
-    kernel_version=GetReleaseCandidateVersion()
+    if kernel_version == None: # no version was suplied as arg
+    	kernel_version=GetReleaseCandidateVersion()
     rc = kernel_version.find('-rc')
     if rc>0:
       testing = '/testing'
   else:
-    kernel_version=GetStableVersion()
+    if kernel_version == None:
+    	kernel_version=GetStableVersion()
   cpuCount=getCpuCount()
   print("cpu count:%s\n" % cpuCount)
   print("compiling kernel %s\n" % kernel_version)
