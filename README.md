@@ -18,6 +18,12 @@ or for stable default
 
 
     sudo python kernel-compile.py
+
+
+also a version can be provided 
+
+
+   sudo python kernel-compile.py --type mainline --version 3.14
     
     
 
