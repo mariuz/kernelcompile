@@ -9,6 +9,8 @@ def main(argv):
   opts, args = getopt.getopt(argv,"ht:v:b:",["help","type=","version=","build_method="])
   kernel_type = 'stable'
   build_method = 'debian'
+  kernel_version = None
+
   for opt, arg in opts:
       if opt in ("-h", "--help"):
          print 'kernelcompile.py [-type <stable|mainline|longterm>] [-v <version>] [-b <normal|debian>]'
