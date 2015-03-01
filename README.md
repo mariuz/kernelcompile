@@ -8,6 +8,9 @@ And here is howto use it on ubuntu/debian for building a RC version and then ins
 
 http://mapopa.blogspot.com/2009/01/building-kernel-2.html
 
+Install Requirements 
+    apt-get install python-pip
+    pip install sh feedparser
 
 Usually the script will do all the work for you , here is the example for mainline
  
