@@ -26,7 +26,7 @@ or for stable default
 also a version can be provided 
 
 
-    sudo python kernel-compile.py --type mainline --version 4.1.16
+    sudo python kernel-compile.py --type mainline --version 4.2
     
     
 
